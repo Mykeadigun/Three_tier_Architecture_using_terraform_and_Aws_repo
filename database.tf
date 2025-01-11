@@ -3,8 +3,8 @@ resource "aws_db_instance" "app_db" {
   engine            = "mysql"
   engine_version    = "8.0.39"
   instance_class    = "db.t2.micro"
-  username          = "your_db_user"
-  password          = "your_db_password"
+  username          = "miguel"
+  password          = "1234567"
   db_name           = "app_rds_db"
   multi_az          = true 
   storage_type      = "gp2"
@@ -12,7 +12,7 @@ resource "aws_db_instance" "app_db" {
 
   # If you're using a VPC
   vpc_security_group_ids = [aws_security_group.db_sg.id]
-  db_subnet_group_name  = aws_db_subnet_group.sng.name
+  db_subnet_group_name  = aws_db_subnet_group.sng.id
 
   tags = {
     Name = "DB Instance"
